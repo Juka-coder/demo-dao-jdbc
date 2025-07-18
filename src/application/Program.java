@@ -24,14 +24,20 @@ public class Program {
         for (Seller seller1 : list) {
             System.out.println(seller1);
         }
-        System.out.println("=== TEST NUMBER 2 seller findALL ===");
+        System.out.println("=== TEST NUMBER 3 seller findALL ===");
         list = sellerDao.findAll();
         for (Seller seller1 : list) {
             System.out.println(seller1);
         }
-        System.out.println("=== TEST NUMBER 3 seller insert ===");
+        System.out.println("=== TEST NUMBER 4 seller insert ===");
         Seller newSeller = new Seller("Greg", null, "greg@gmail.com", LocalDate.now(), 4000.0, department);
         sellerDao.insert(newSeller);
         System.out.println("Inserted | New ID = " + newSeller.getId());
+
+        System.out.println("=== TEST NUMBER 5 seller insert ===");
+        seller = sellerDao.findById(1);
+        seller.setName("Marta Waine");
+        sellerDao.update(seller);
+        System.out.println("Update completed!");
     }
 }
