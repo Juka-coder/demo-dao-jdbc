@@ -2,14 +2,10 @@ package application;
 
 import model.dao.DaoFactory;
 import model.dao.SellerDao;
-import model.dao.impl.SellerDaoJDBC;
 import model.entities.Department;
 import model.entities.Seller;
 
-import javax.xml.transform.Source;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -20,7 +16,7 @@ public class Program {
         System.out.println("=== TEST NUMBER 1 seller findbbyid ===");
         Seller seller = sellerDao.findById(3);
         System.out.println(seller);
-        System.out.println("=== TEST NUMBER 2 seller findbbyid ===");
+        System.out.println("=== TEST NUMBER 2 seller findbbydepartment ===");
         Department department = new Department(3, null);
         List<Seller> list = sellerDao.findByDepartment(department);
         for (Seller seller1 : list) {
@@ -36,7 +32,7 @@ public class Program {
         sellerDao.insert(newSeller);
         System.out.println("Inserted | New ID = " + newSeller.getId());
 
-        System.out.println("=== TEST NUMBER 5 seller insert ===");
+        System.out.println("=== TEST NUMBER 5 seller update ===");
         seller = sellerDao.findById(1);
         seller.setName("Marta Waine");
         sellerDao.update(seller);
