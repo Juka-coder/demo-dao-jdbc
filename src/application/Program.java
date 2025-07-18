@@ -6,10 +6,12 @@ import model.dao.impl.SellerDaoJDBC;
 import model.entities.Department;
 import model.entities.Seller;
 
+import javax.xml.transform.Source;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 public class Program {
     public static void main(String[] args) {
@@ -39,5 +41,13 @@ public class Program {
         seller.setName("Marta Waine");
         sellerDao.update(seller);
         System.out.println("Update completed!");
+
+        System.out.println("=== TEST NUMBER 6 seller delete ===");
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter id for delete test: ");
+        int id = sc.nextInt();
+        sellerDao.deleteById(id);
+        System.out.println("Delete completed");
+        sc.close();
     }
 }
